@@ -53,7 +53,7 @@ User.init(
       },
     },
     password: {
-      type: new DataTypes.INTEGER.UNSIGNED(),
+      type: new DataTypes.STRING(128),
       allowNull: false,
     },
     id_role: {
@@ -64,6 +64,7 @@ User.init(
   {
     tableName: "users",
     sequelize,
+    timestamps: false,
   },
 );
 
