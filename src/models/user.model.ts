@@ -1,15 +1,8 @@
 import { Model, DataTypes } from "sequelize";
 import type { Optional } from "sequelize";
+import type { UserAtributes } from "@interfaces/user.interface";
 import sequelize from "@config/database";
 import bcrypt from "bcryptjs";
-
-interface UserAtributes {
-  id: number;
-  name: string;
-  email: string;
-  password?: string;
-  id_role: number;
-}
 
 interface UserCreationAttributes extends Optional<UserAtributes, "id"> {
   password: string;
