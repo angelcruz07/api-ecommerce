@@ -3,7 +3,8 @@
   "type": "module",
   "scripts": {
     "dev": "bun --watch src/server.ts",
-    "build": "tsc"
+    "build": "tsc",
+    "start": "bun run dist/server.js"
   },
   "dependencies": {
     "bcryptjs": "^3.0.2",

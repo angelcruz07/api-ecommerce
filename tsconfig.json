@@ -13,6 +13,9 @@
       "@*": ["src/*"]
     },
 
+    "esModuleInterop": true, // Clave para importar 'express', 'cors', etc.
+    "forceConsistentCasingInFileNames": true,
+
     // Bundler mode
     "moduleResolution": "bundler",
     "allowImportingTsExtensions": true,
@@ -30,5 +33,7 @@
     "noUnusedLocals": false,
     "noUnusedParameters": false,
     "noPropertyAccessFromIndexSignature": false
-  }
+  },
+  "include": ["src/**/*"], // Carpetas que SÍ debe compilar
+  "exclude": ["node_modules"]
 }
