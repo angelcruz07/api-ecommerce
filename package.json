@@ -3,7 +3,7 @@
   "type": "module",
   "scripts": {
     "dev": "bun --watch src/server.ts",
-    "build": "tsc",
+    "build": "bun build ./src/server.ts --outdir ./dist --target node --packages external",
     "start": "bun run dist/server.js"
   },
   "dependencies": {

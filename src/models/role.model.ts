@@ -10,11 +10,11 @@ class Role
   extends Model<RoleAttributes, RoleCreationAttributes>
   implements RoleAttributes
 {
-  public id!: number;
-  public name!: string;
+  declare id: number;
+  declare name: string;
 
-  public readonly createAt!: Date;
-  public readonly updateAt!: Date;
+  declare readonly createAt: Date;
+  declare readonly updateAt: Date;
 }
 
 Role.init(

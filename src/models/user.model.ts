@@ -10,17 +10,23 @@ class User
   extends Model<UserAtributes, UserCreationAttributes>
   implements UserAtributes
 {
-  public id!: number;
-  public name!: string;
-  public email!: string;
-  public password!: string;
-  public id_role!: number;
+  declare id: number;
+  declare name: string;
+  declare email: string;
+  declare password: string;
+  declare id_role: number;
 
-  public readonly createAt!: Date;
-  public readonly updateAt!: Date;
+  declare readonly createAt: Date;
+  declare readonly updateAt: Date;
 
   public async comparePassword(password: string): Promise<boolean> {
     return bcrypt.compare(password, this.password);
+  }
+
+  toJSON(): any {
+        const values = { ...this.get() };
+        delete values.password;
+        return values;
   }
 }
 

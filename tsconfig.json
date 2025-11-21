@@ -1,39 +1,31 @@
 {
   "compilerOptions": {
+    /* Configuración Base para Bun */
     "lib": ["ESNext"],
-    "target": "ESNext",
-    "module": "Preserve",
-    "moduleDetection": "force",
-    "jsx": "react-jsx",
-    "allowJs": true,
-    "rootDir": "./src",
-    "outDir": "./dist",
-    "baseUrl": "./",
-    "paths": {
-      "@*": ["src/*"]
-    },
-
-    "esModuleInterop": true, // Clave para importar 'express', 'cors', etc.
-    "forceConsistentCasingInFileNames": true,
-
-    // Bundler mode
+    "module": "esnext",
+    "target": "esnext",
     "moduleResolution": "bundler",
-    "allowImportingTsExtensions": true,
-    "verbatimModuleSyntax": true,
-    "noEmit": true,
-
-    // Best practices
+    "moduleDetection": "force",
+    "allowImportingTsExtensions": true, /* ESTO soluciona tu error de import app from "./app.ts" */
+    "noEmit": true,                     /* ESTO permite que tsc solo verifique tipos, sin estorbar */
+    "composite": true,
     "strict": true,
+    "downlevelIteration": true,
     "skipLibCheck": true,
-    "noFallthroughCasesInSwitch": true,
-    "noUncheckedIndexedAccess": true,
-    "noImplicitOverride": true,
+    "allowSyntheticDefaultImports": true,
+    "forceConsistentCasingInFileNames": true,
+    "allowJs": true,
 
-    // Some stricter flags (disabled by default)
-    "noUnusedLocals": false,
-    "noUnusedParameters": false,
-    "noPropertyAccessFromIndexSignature": false
+    /* Configuración de Rutas y Alias (Vital para tus imports con @) */
+    "baseUrl": "./src",
+    "paths": {
+      "@routes/*": ["routes/*"],
+      "@controllers/*": ["controllers/*"],
+      "@services/*": ["services/*"],
+      "@models/*": ["models/*"],
+      "@interfaces/*": ["interfaces/*"],
+      "@config/*": ["config/*"]
+    }
   },
-  "include": ["src/**/*"], // Carpetas que SÍ debe compilar
-  "exclude": ["node_modules"]
+  "include": ["src/**/*"]
 }
