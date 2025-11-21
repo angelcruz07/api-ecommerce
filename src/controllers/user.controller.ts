@@ -21,8 +21,6 @@ export class  UserController {
     // POST
     public createUser = async (req: any, res: any) => {
         try {
-
-            // We get from request
             const { name, email, password, id_role } = req.body;
 
             if (!name || !email || !password || !id_role) {
@@ -33,7 +31,7 @@ export class  UserController {
 
             return res.status(200).json({
                 message: "User created successfully",
-                data: newUser
+                data: { name: newUser.name, email: newUser.email }
             });
         } catch (e: any) {
             console.log(e);
